@@ -9,7 +9,6 @@ import Card from '../components/Card.astro';
     <div class="key-visual container">
       <h1><span class="text-gradient">Visibleman</span></h1>
       <h2>Web Frontend Developper</h2>
-      <p class="name">根岸周一</p>
     </div>
     <div class="instructions">
       <div class="container">
@@ -21,15 +20,18 @@ import Card from '../components/Card.astro';
     </div>
     <ul role="list" class="link-card-grid container">
       <Card
-        title="High Performance - 高速化"
-        body="パフォーマンスとして表示速度やGoogleのPagespeed Insightのスコアなどを考慮して開発を行います。"
+        title="High Performance"
+        subTitle="高速化"
+        body="パフォーマンスとして表示速度やGoogle Litehouseのスコアを考慮して開発を行います。"
       />
       <Card
-        title="Maintenancebility - 保守性"
-        body="CSSに関してはSassやStylusなどを利用し、HTMLはJSフレームワークやWeb Componentsを利用することなどでメンテナンス性や保守性・拡張性を保持した開発を行うことが出来ます。"
+        title="Maintenancebility"
+        subTitle="保守性"
+        body="CSSに関してはSassやStylusなどを利用し、JSフレームワークやWeb Componentsを利用することなどでメンテナンス性や保守性・拡張性を保持した開発を行うことが出来ます。"
       />
       <Card
-        title="Efficiency - 効率化"
+        title="Efficiency"
+        subTitle="効率化"
         body="作業を行う事で工数をできる限り少なくするためにgulpやWebpackなどのツールを利用して効率化を図っています。エディタは主に Visual Studio Code か WebStormを使用しています。"
       />
     </ul>
@@ -63,16 +65,6 @@ import Card from '../components/Card.astro';
   h2 {
     color: #7f7f7f;
     font-size: 1rem;
-  }
-  .name {
-    color: #666;
-    font-size: min(2vw, 1rem);
-    writing-mode: vertical-rl;
-    letter-spacing: min(2vw, 1rem);
-    transform: rotateY(-30deg) skew(0, -10deg);
-    position: absolute;
-    right: 1rem;
-    bottom: 0;
   }
   .text-gradient {
     background-image: var(--accent-gradient);
