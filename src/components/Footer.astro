@@ -1,0 +1,20 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  &copy; {currentYear} Shuichi Negishi
+  <small class="byline">🚀 Built by Astro</small>
+</footer>
+<style>
+  footer {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  .byline {
+    display: block;
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+</style>
