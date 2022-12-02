@@ -1,7 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { Icon } from 'astro-icon'
 
+const techs = [
+  {
+    class: 'html',
+    name: 'vscode-icons:file-type-html',
+    level: 4
+  },
+  {
+    class: 'css',
+    name: 'vscode-icons:file-type-css',
+    level: 4
+  },
+  {
+    class: 'js',
+    name: 'vscode-icons:file-type-js-official',
+    level: 4
+  },
+  {
+    class: 'rails',
+    name: 'vscode-icons:file-type-rails',
+    level: 3
+  },
+  {
+    class: 'vue',
+    name: 'vscode-icons:file-type-vue',
+    level: 3
+  },
+  {
+    class: 'nuxt',
+    name: 'vscode-icons:file-type-nuxt',
+    level: 3
+  },
+  {
+    class: 'git',
+    name: 'vscode-icons:file-type-git',
+    level: 3
+  },
+  {
+    class: 'mysql',
+    name: 'vscode-icons:file-type-mysql',
+    level: 3
+  },
+  {
+    class: 'docker',
+    name: 'vscode-icons:file-type-docker',
+    level: 3
+  },
+  {
+    class: 'gulp',
+    name: 'vscode-icons:file-type-gulp',
+    level: 4
+  },
+  {
+    class: 'firebase',
+    name: 'vscode-icons:file-type-firebase',
+    level: 3
+  },
+  {
+    class: 'wordpress',
+    name: 'dashicons:wordpress',
+    level: 4
+  },
+]
 ---
 
 <Layout title="Visibleman LP for MENTA.">
@@ -16,25 +79,62 @@ import Card from '../components/Card.astro';
         <p>
           2019年からフリーランスのフロントエンドエンジニアとして活動しております。
         </p>
+        <p>
+          フリーランスになる以前はWeb制作会社で新人教育や人材採用の技術力判定担当をしていました。
+        </p>
+        <p>
+          新人教育をしていた時期は、教える側である事が私自身の技術力に対するモチベーション向上につながり、ステップアップのきっかけにもなったと感じています。
+        </p>
+        <p>
+          私自身が常に技術力向上を目指すと共に、今までの知見や現場で活用した技術をエンジニアを目指す方に提供する事で、フロントエンドエンジニアの価値を向上させることが私の目標です。
+        </p>
       </div>
     </div>
-    <ul role="list" class="link-card-grid container">
-      <Card
-        title="High Performance"
-        subTitle="高速化"
-        body="パフォーマンスとして表示速度やGoogle Litehouseのスコアを考慮して開発を行います。"
-      />
-      <Card
-        title="Maintenancebility"
-        subTitle="保守性"
-        body="CSSに関してはSassやStylusなどを利用し、JSフレームワークやWeb Componentsを利用することなどでメンテナンス性や保守性・拡張性を保持した開発を行うことが出来ます。"
-      />
-      <Card
-        title="Efficiency"
-        subTitle="効率化"
-        body="作業を行う事で工数をできる限り少なくするためにgulpやWebpackなどのツールを利用して効率化を図っています。エディタは主に Visual Studio Code か WebStormを使用しています。"
-      />
-    </ul>
+    <div class="container">
+      <h3>
+        Policy
+      </h3>
+      <ul role="list" class="link-card-grid">
+        <Card
+          icon="twemoji:chart-increasing"
+          title="High Performance"
+          subTitle="高速化"
+          body="パフォーマンスとして表示速度やGoogle Litehouseのスコアを考慮して開発を行います。"
+        />
+        <Card
+          icon="twemoji:hammer-and-wrench"
+          title="Maintenancebility"
+          subTitle="保守性"
+          body="JSフレームワークやWeb Componentsを利用することなどでメンテナンス性や保守性・拡張性を保持した開発を行います。"
+        />
+        <Card
+          icon="twemoji:hourglass-not-done"
+          title="Efficiency"
+          subTitle="効率化"
+          body="作業を行う事で工数をできる限り少なくするための効率化を図ります。"
+        />
+        <Card
+          icon="twemoji:man-technologist-light-skin-tone"
+          title="Advanced technology"
+          subTitle="先端技術"
+          body="常に新しい技術のキャッチアップをするモチベーションを持ち続けます。"
+        />
+      </ul>
+    </div>
+    <div class="tech">
+      <div class="container">
+        <h3>Skill Set</h3>
+        <ul class="tech-list">
+          {
+            techs.map((tech) => <li>
+              <Icon name={tech.name} class={`icon ${tech.class}`} style={`--data-level: ${tech.level};`} />
+              <span class="rating" style={`--data-level: ${tech.level};`}></span>
+            </li>)
+          }
+        </ul>
+        <p class="etc">etc...</p>
+      </div>
+    </div>
   </main>
 </Layout>
 
@@ -66,6 +166,12 @@ import Card from '../components/Card.astro';
     color: #7f7f7f;
     font-size: 1rem;
   }
+  h3 {
+    font-size: 2rem;
+  }
+  h3 + *{
+    margin-top: 1.5rem;
+  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -93,5 +199,65 @@ import Card from '../components/Card.astro';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1rem;
+  }
+  p + p {
+    margin-top: 0.5rem;
+  }
+  .tech {
+    background-color: #fff;
+  }
+  .tech-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: min(8vw, 4rem);
+  }
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    filter: grayscale(100%);
+    display: block;
+    margin-inline: auto;
+  }
+  .wordpress {
+    color: #0073AA;
+  }
+  .icon:hover {
+    filter: grayscale(0);
+  }
+  .rating {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    letter-spacing: -0.2em;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .rating:before, .rating:after {
+    content: 'star star star star star';
+    font-family: 'Material Icons';
+    display: block;
+  }
+  .rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc( 100% * ( var(--data-level) / 5 ) );
+  }
+  .icon:hover + .rating {
+    color: #ddd;
+  }
+  .icon:hover + .rating:after {
+    color: #ffcf32;
+  }
+  .etc {
+    text-align: center;
+    margin-top: 2rem;
   }
 </style>

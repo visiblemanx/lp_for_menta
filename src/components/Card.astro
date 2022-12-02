@@ -1,24 +1,28 @@
 ---
+import { Icon } from 'astro-icon'
 export interface Props {
+  icon: string;
   title: string;
   subTitle: string;
   body: string;
 }
 
-const { title, subTitle, body } = Astro.props;
+const { icon, title, subTitle, body } = Astro.props;
 ---
 
 <li class="link-card">
-  <h2>
+  <Icon name={icon} class="icon" />
+  <h4>
     {title}
-  </h2>
-  <h3>
+  </h4>
+  <h5>
     - {subTitle} -
-  </h3>
+  </h5>
   <p>
     {body}
   </p>
 </li>
+
 <style>
   .link-card {
     list-style: none;
@@ -31,11 +35,18 @@ const { title, subTitle, body } = Astro.props;
     color: #111;
     background-color: white;
   }
-  h2, h3 {
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    color: rgb(var(--accent));
+    display: block;
+    margin-inline: auto;
+  }
+  h4, h5 {
     text-align: center;
   }
-  h2 {
-    margin: 0;
+  h4 {
+    margin-top: .5rem;
     font-size: 1.25rem;
     transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
