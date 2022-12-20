@@ -1,0 +1,140 @@
+---
+import { Icon } from 'astro-icon';
+
+const slills = [
+  {
+    class: 'html',
+    name: 'vscode-icons:file-type-html',
+    level: 4
+  },
+  {
+    class: 'css',
+    name: 'vscode-icons:file-type-css',
+    level: 4
+  },
+  {
+    class: 'js',
+    name: 'vscode-icons:file-type-js-official',
+    level: 4
+  },
+  {
+    class: 'rails',
+    name: 'vscode-icons:file-type-rails',
+    level: 3
+  },
+  {
+    class: 'vue',
+    name: 'vscode-icons:file-type-vue',
+    level: 3
+  },
+  {
+    class: 'nuxt',
+    name: 'vscode-icons:file-type-nuxt',
+    level: 3
+  },
+  {
+    class: 'git',
+    name: 'vscode-icons:file-type-git',
+    level: 3
+  },
+  {
+    class: 'mysql',
+    name: 'vscode-icons:file-type-mysql',
+    level: 3
+  },
+  {
+    class: 'docker',
+    name: 'vscode-icons:file-type-docker',
+    level: 3
+  },
+  {
+    class: 'gulp',
+    name: 'vscode-icons:file-type-gulp',
+    level: 4
+  },
+  {
+    class: 'firebase',
+    name: 'vscode-icons:file-type-firebase',
+    level: 3
+  },
+  {
+    class: 'wordpress',
+    name: 'dashicons:wordpress',
+    level: 4
+  },
+]
+---
+<div class="skill">
+  <div class="container">
+    <h3>Skill Set</h3>
+    <ul class="skill-list">
+      {
+        slills.map((skill) => <li>
+          <Icon name={skill.name} class={`icon ${skill.class}`} style={`--data-level: ${skill.level};`} />
+          <span class="rating" style={`--data-level: ${skill.level};`}></span>
+        </li>)
+      }
+    </ul>
+    <p class="etc">and more...</p>
+  </div>
+</div>
+
+<style>
+  .skill {
+    background-color: #fff;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: min(8vw, 4rem);
+  }
+  .icon:hover + .rating {
+    color: #ddd;
+  }
+  .icon:hover + .rating:after {
+    color: #ffcf32;
+  }
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    filter: grayscale(100%);
+    display: block;
+    margin-inline: auto;
+  }
+  .wordpress {
+    color: #0073AA;
+  }
+  .icon:hover {
+    filter: grayscale(0);
+  }
+  .rating {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    letter-spacing: -0.2em;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .rating:before, .rating:after {
+    content: 'star star star star star';
+    font-family: 'Material Icons';
+    display: block;
+  }
+  .rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc( 100% * ( var(--data-level) / 5 ) );
+  }
+  .etc {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

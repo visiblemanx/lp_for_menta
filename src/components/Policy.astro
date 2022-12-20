@@ -1,0 +1,43 @@
+---
+import Card from './Card.astro';
+
+---
+<div class="container">
+  <h3>
+    Policy
+  </h3>
+  <ul role="list" class="link-card-grid">
+    <Card
+      icon="twemoji:chart-increasing"
+      title="High Performance"
+      subTitle="高速化"
+      body="パフォーマンスとして表示速度やGoogle Litehouseのスコアを考慮して開発を行います。"
+    />
+    <Card
+      icon="twemoji:hammer-and-wrench"
+      title="Maintenancebility"
+      subTitle="保守性"
+      body="JSフレームワークやWeb Componentsを利用することなどでメンテナンス性や保守性・拡張性を保持した開発を行います。"
+    />
+    <Card
+      icon="twemoji:hourglass-not-done"
+      title="Efficiency"
+      subTitle="効率化"
+      body="作業を行う事で工数をできる限り少なくするための効率化を図ります。"
+    />
+    <Card
+      icon="twemoji:man-technologist-light-skin-tone"
+      title="Advanced technology"
+      subTitle="先端技術"
+      body="常に新しい技術のキャッチアップをするモチベーションを持ち続けます。"
+    />
+  </ul>
+</div>
+
+<style>
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+  }
+</style>
