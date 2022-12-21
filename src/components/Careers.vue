@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="site-container">
     <h3>Careers</h3>
     <dl v-for="career in careers" v-if="careers">
       <dt>

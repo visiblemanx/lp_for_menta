@@ -1,6 +1,6 @@
 <template>
   <div class="works">
-    <div class="container">
+    <div class="site-container">
       <h3>Works</h3>
       <dl v-for="work in works" v-if="works">
         <dt>

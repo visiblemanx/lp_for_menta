@@ -9,7 +9,5 @@ export default defineConfig({
     port: 3201,
     host: true
   },
-  integrations: [compress(), vue(), tailwind({
-    config: { applyBaseStyles: false },
-  })]
+  integrations: [compress(), vue(), tailwind()]
 });
