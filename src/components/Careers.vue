@@ -1,6 +1,10 @@
 <template>
   <div class="site-container">
-    <h3>Careers</h3>
+    <h3 class="section-title">
+      <span class="radius-underline">
+        Careers
+      </span>
+    </h3>
     <dl v-for="career in careers" v-if="careers">
       <dt>
         <span v-if="career.url === '終了'">{{career.title}}</span>
