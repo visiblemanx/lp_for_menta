@@ -25,7 +25,12 @@
         </ul>
       </dl>
       <p class="text-center" v-else>
-        要ログイン
+        <span v-if="user">
+          権限がありません。
+        </span>
+        <span v-else>
+          要ログイン
+        </span>
       </p>
     </div>
   </div>
@@ -40,17 +45,18 @@
   perspective: 70rem;
 }
 .works-image {
-  transform: rotate3d(1.3, 1.8, -0.5, 45deg);
+  transform: rotate3d(2.3, 0.8, -0.5, 45deg);
   box-shadow: -1rem 1rem 2rem rgb(0 0 0 / 30%);
 }
 </style>
 
 <script>
-import { fbWorksState } from '../store';
+import { fbUserState, fbWorksState } from '../store';
 import { useStore } from '@nanostores/vue';
 
 export default {
   data: () => ({
+    user: useStore(fbUserState),
     works: useStore(fbWorksState)
   })
 }

@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getDatabase, ref, onValue } from "firebase/database";
 import { fbUserState, fbCareersState, fbWorksState } from './store';
+import { useStore } from '@nanostores/vue';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,18 +21,18 @@ const auth = getAuth(app);
 
 export async function initialize () {
   auth.onAuthStateChanged(currentUser => {
+    console.log({currentUser});
+
     if (currentUser && currentUser.emailVerified) {
       fbUserState.set(currentUser);
       const db = getDatabase();
       const careersRef = ref(db, 'careers/');
       const worksRef = ref(db, 'works/');
       onValue(careersRef, (snapshot) => {
-        const data = snapshot.val();
-        fbCareersState.set(data);
+        fbCareersState.set(snapshot.val());
       });
       onValue(worksRef, (snapshot) => {
-        const data = snapshot.val();
-        fbWorksState.set(data);
+        fbWorksState.set(snapshot.val());
       });
     } else {
       console.log('logout');

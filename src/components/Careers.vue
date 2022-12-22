@@ -22,7 +22,12 @@
       </dd>
     </dl>
     <p class="text-center" v-else>
-      要ログイン
+      <span v-if="user">
+        権限がありません。
+      </span>
+      <span v-else>
+        要ログイン
+      </span>
     </p>
   </div>
 </template>
@@ -32,11 +37,12 @@
 </style>
 
 <script>
-import { fbCareersState } from '../store';
+import { fbUserState, fbCareersState } from '../store';
 import { useStore } from '@nanostores/vue';
 
 export default {
   data: () => ({
+    user: useStore(fbUserState),
     careers: useStore(fbCareersState)
   })
 }

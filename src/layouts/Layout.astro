@@ -61,7 +61,6 @@ const { title } = Astro.props;
   .radius-underline {
     display: inline-block;
     position: relative;
-    padding-right: 1rem;
     z-index: 1;
   }
   .radius-underline::before {
@@ -72,9 +71,14 @@ const { title } = Astro.props;
     height: 0.5rem;
     bottom: 0;
     background-image: var(--accent-gradient);
-    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    clip-path: polygon(0 0,5% 100%,100% 0);
     background-size: 200%;
     z-index: -1;
     opacity: .7;
+  }
+
+  .nm-flat-gray-200 {
+    background: #F6F6F6;
+    box-shadow: 0.2em 0.2em 0.4em #c8c8c8, -0.2em -0.2em 0.4em #fff;
   }
 </style>
