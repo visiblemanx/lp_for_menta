@@ -14,7 +14,7 @@
           <ul class="works-list">
             <li v-for="item in work.urls" class="mt-4 md:flex md:items-center">
               <img :src="`/img/${item.id}.jpeg`" alt="{{item.title}}" width="200" height="150" class="works-image mx-auto md:w-1/2" />
-              <a :href="item.url" target="_blank" rel="noopener noreferrer" class="text-indigo-500 underline underline-offset-4 decoration-dotted flex-1 mt-4 md:mt-0 block hover:text-indigo-300">{{item.title}}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.title}}</a>
             </li>
           </ul>
         </dd>

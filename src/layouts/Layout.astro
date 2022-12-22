@@ -44,10 +44,19 @@ const { title } = Astro.props;
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
       Bitstream Vera Sans Mono, Courier New, monospace;
   }
+  a {
+    color: rgb(var(--accent));
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    text-decoration-style: dotted;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
 
   .site-container {
     margin: auto;
-    padding: 1.5rem;
+    padding: 3rem 1.5rem;
     max-width: 60ch;
   }
   .section-title {
