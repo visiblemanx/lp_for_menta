@@ -13,7 +13,10 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="noindex,nofollow"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap&text=star" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@600&display=swap&text=VisiblemanAboutMePolicySkillSetWorksCareers" rel="stylesheet">
     <title>{title}</title>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
@@ -62,7 +65,7 @@ const { title } = Astro.props;
   .section-title {
     font-size: 2rem;
     text-align: center;
-    font-weight: bold;
+    font-family: 'Encode Sans Condensed', sans-serif;
   }
   .section-title + *{
     margin-top: 1.5rem;

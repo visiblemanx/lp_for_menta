@@ -6,9 +6,11 @@
           Works
         </span>
       </h3>
-      <dl v-for="work in works" v-if="works" class="mt-8 text-center">
-        <dt class="text-xl font-bold">
-          {{work.title}}
+      <dl v-for="work in works" v-if="works" class="mt-12 text-center">
+        <dt>
+          <span class="works-title text-xl">
+            {{work.title}}
+          </span>
         </dt>
         <dd class="pl-2">
           <ul class="works-list">
@@ -47,6 +49,28 @@
 .works-image {
   transform: rotate3d(2.3, 0.8, -0.5, 45deg);
   box-shadow: -1rem 1rem 2rem rgb(0 0 0 / 30%);
+}
+.works-title {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  border-top: solid 1px #c9ccd1;
+  border-bottom: solid 1px #c9ccd1;
+}
+.works-title:after {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  bottom: -0.5rem;
+  margin-inline: auto;
+  transform: rotate(45deg);
+  border-right: solid 1px #c9ccd1;
+  border-bottom: solid 1px #c9ccd1;
 }
 </style>
 
