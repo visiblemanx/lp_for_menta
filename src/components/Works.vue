@@ -2,7 +2,7 @@
   <div class="works">
     <div class="site-container">
       <h3 class="section-title">
-        <span class="radius-underline">
+        <span class="radius-underline fade-in">
           Works
         </span>
       </h3>

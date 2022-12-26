@@ -66,14 +66,14 @@ const slills = [
 ---
 <div class="skill">
   <div class="site-container">
-    <h3 class="section-title">
+    <h3 class="section-title fade-in">
       <span class="radius-underline">
         Skill Set
       </span>
     </h3>
     <ul class="skill-list">
       {
-        slills.map((skill) => <li>
+        slills.map((skill) => <li class="fade-in">
           <Icon name={skill.name} class={`icon ${skill.class}`} style={`--data-level: ${skill.level};`} />
           <span class="rating" style={`--data-level: ${skill.level};`}></span>
         </li>)
