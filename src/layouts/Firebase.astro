@@ -47,9 +47,6 @@ console.log(JSON.stringify(auth));
   auth.onAuthStateChanged(currentUser => {
     if (currentUser) {
       user = currentUser;
-      console.log({currentUser});
-    } else {
-      console.log('hoge');
     }
   });
 
@@ -59,7 +56,6 @@ console.log(JSON.stringify(auth));
       .then((userCredential) => {
         // Signed in
         user = userCredential.user;
-        console.log({user})
       })
       .catch((error) => {
         console.error(error);

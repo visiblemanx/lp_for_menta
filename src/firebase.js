@@ -21,8 +21,6 @@ const auth = getAuth(app);
 
 export async function initialize () {
   auth.onAuthStateChanged(currentUser => {
-    console.log({currentUser});
-
     if (currentUser && currentUser.emailVerified) {
       fbUserState.set(currentUser);
       const db = getDatabase();
