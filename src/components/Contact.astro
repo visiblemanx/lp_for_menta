@@ -1,0 +1,51 @@
+---
+---
+<div class="contact js-section" id="contact">
+  <div class="site-container">
+    <h3 class="section-title">
+      <span class="radius-underline fade-in">
+        Contact
+      </span>
+    </h3>
+    <form
+      action="https://formspree.io/f/moqzqweo"
+      method="POST"
+      >
+      <div class="w-full md:w-2/3 mx-auto mt-4">
+        <div>
+          <label>
+            <div class="flex items-center justify-between">
+              メールアドレス <span class="bg-purple-400 text-white py-1 px-2 rounded text-xs">必須</span>
+            </div>
+            <input type="email" name="email" class="w-full bg-gray-100 border-2 border-gray-200 rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 mt-2" required>
+          </label>
+        </div>
+        <div class="mt-4">
+          <label>
+            <div class="flex items-center justify-between">
+              お名前 <span class="bg-purple-400 text-white py-1 px-2 rounded text-xs">必須</span>
+            </div>
+            <input type="text" name="name" class="w-full bg-gray-100 border-2 border-gray-200 rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 mt-2" required>
+          </label>
+        </div>
+        <div class="mt-4">
+          <label>
+            <div class="flex items-center justify-between">
+              メッセージ <span class="bg-purple-400 text-white py-1 px-2 rounded text-xs">必須</span>
+            </div>
+            <textarea name="message" rows="5" class="w-full bg-gray-100 border-2 border-gray-200 rounded py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 mt-2" required></textarea>
+          </label>
+        </div>
+        <div class="flex justify-center mt-4">
+          <button type="submit" class="rounded-full nm-flat-white leading-5 px-8 py-4 font-bold tracking-widest transition duration-200 ease-in-out transform hover:scale-110 flex items-center">送信</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .contact {
+    background-color: #fff;
+  }
+</style>

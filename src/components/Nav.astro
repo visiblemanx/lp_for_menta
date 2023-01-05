@@ -1,0 +1,103 @@
+---
+const titles = [
+  {
+    name: 'Top',
+    id: 'nav_kv',
+    target: 'kv',
+  },
+  {
+    name: 'About Me',
+    id: 'nav_about_me',
+    target: 'about_me',
+  },
+  {
+    name: 'policy',
+    id: 'nav_policy',
+    target: 'policy',
+  },
+  {
+    name: 'Skill Set',
+    id: 'nav_skill_set',
+    target: 'skill_set',
+  },
+  {
+    name: 'Works',
+    id: 'nav_works',
+    target: 'works',
+  },
+  {
+    name: 'Careers',
+    id: 'nav_careers',
+    target: 'careers',
+  },
+  {
+    name: 'Contact',
+    id: 'nav_contact',
+    target: 'contact',
+  }
+];
+---
+
+<div class="nav">
+  <ul class="titles">
+    {
+      titles.map((title) => <li id={title.id} class="js-nav-item" data-target={title.target}>
+        {title.name}
+      </li>)
+    }
+  </ul>
+</div>
+<script>
+  const sections = document.querySelectorAll('.js-section');
+  const navItems = document.querySelectorAll('.js-nav-item');
+  const navOptions = {
+    threshold: 0.6
+  };
+
+  const navCallback = (entries) => {
+    entries.forEach( (entry) => {
+      const nav_id = `nav_${entry.target.id}`;
+      const navTarget = document.getElementById(nav_id);
+      if (entry.isIntersecting) {
+        navTarget.classList.add('is-active');
+      } else {
+        navTarget.classList.remove('is-active');
+      }
+    });
+  }
+
+  const navObserver = new IntersectionObserver(navCallback, navOptions);
+
+  sections.forEach(target => {
+    navObserver.observe(target);
+  });
+
+  navItems.forEach(target => {
+    target.addEventListener('click', (e) => {
+      document.getElementById(e.target.dataset.target).scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 1rem;
+    right: 0;
+  }
+
+  .titles > li {
+    text-transform: capitalize;
+    font-weight: bold;
+    padding: 10px 5vw;
+    opacity: .3;
+    transition: all .3s linear;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    cursor: pointer;
+    position: relative;
+  }
+  .titles > li.is-active {
+    opacity: .5;
+  }
+</style>
+

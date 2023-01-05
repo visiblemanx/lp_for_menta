@@ -1,5 +1,5 @@
 <template>
-  <div class="site-container">
+  <div class="site-container js-section" id="careers">
     <h3 class="section-title">
       <span class="radius-underline fade-in">
         Careers
