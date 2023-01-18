@@ -38,7 +38,13 @@ const titles = [
 ];
 ---
 
-<div class="nav">
+<a class="menu js-menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</a>
+
+<div class="nav js-nav">
   <ul class="titles">
     {
       titles.map((title) => <li id={title.id} class="js-nav-item" data-target={title.target}>
@@ -50,6 +56,7 @@ const titles = [
 <script>
   const sections = document.querySelectorAll('.js-section');
   const navItems = document.querySelectorAll('.js-nav-item');
+  const menu = document.querySelector('.js-menu');
   const navOptions = {
     threshold: 0.6
   };
@@ -58,11 +65,7 @@ const titles = [
     entries.forEach( (entry) => {
       const nav_id = `nav_${entry.target.id}`;
       const navTarget = document.getElementById(nav_id);
-      if (entry.isIntersecting) {
-        navTarget.classList.add('is-active');
-      } else {
-        navTarget.classList.remove('is-active');
-      }
+      navTarget.classList.toggle('is-active', entry.isIntersecting);
     });
   }
 
@@ -75,29 +78,106 @@ const titles = [
   navItems.forEach(target => {
     target.addEventListener('click', (e) => {
       document.getElementById(e.target.dataset.target).scrollIntoView({behavior: 'smooth', block: 'start'});
+      menu.classList.toggle('is-open');
     });
   });
+
+  menu.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.currentTarget.classList.toggle('is-open');
+  });
+
 </script>
 
 <style>
+  .menu {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+    z-index: 2;
+  }
+  .menu > span {
+    background: #666;
+    border-radius: 10px;
+    height: 3px;
+    transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  .menu > span:nth-of-type(1){
+    width: 50%;
+  }
+  .menu > span:nth-of-type(2){
+    width: 100%;
+  }
+  .menu > span:nth-of-type(3){
+    width: 75%;
+  }
+  .menu.is-open > span:nth-of-type(1){
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(5px, 0)
+  }
+  .menu.is-open > span:nth-of-type(2){
+    transform-origin: top;
+    transform: rotatez(-45deg)
+  }
+  .menu.is-open > span:nth-of-type(3){
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(13px,-6px) rotatez(45deg);
+  }
+  .menu.is-open + .nav {
+    transform: translateX(0);
+  }
+
   .nav {
     position: fixed;
-    top: 1rem;
+    top: 0;
     right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform 300ms ease-in-out;
+    z-index: 1;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    backdrop-filter: blur(10px);
+    padding-left: 10px;
+    overflow-y: auto;
   }
 
   .titles > li {
     text-transform: capitalize;
     font-weight: bold;
     padding: 10px 5vw;
-    opacity: .3;
+    color: #666;
     transition: all .3s linear;
     font-family: 'Encode Sans Condensed', sans-serif;
     cursor: pointer;
     position: relative;
+    transform: translateX(0);
   }
   .titles > li.is-active {
-    opacity: .5;
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    transform: translateX(-5px);
+  }
+  .titles > li:hover {
+    transform: translateX(-5px);
+  }
+
+  @media (min-width: 768px) {
+    .menu {
+      visibility: hidden;
+    }
+    .nav {
+      transform: translateX(0);
+    }
   }
 </style>
-
