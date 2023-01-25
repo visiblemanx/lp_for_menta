@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Sprite } from 'astro-icon'
 
 const slills = [
   {
@@ -74,7 +74,9 @@ const slills = [
     <ul class="skill-list">
       {
         slills.map((skill) => <li class="fade-in">
-          <Icon name={skill.name} class={`icon ${skill.class}`} style={`--data-level: ${skill.level};`} />
+          <Sprite.Provider>
+            <Sprite pack={skill.name.split(':')[0]} name={skill.name.split(':')[1]} class={`icon ${skill.class}`} style={`--data-level: ${skill.level};`} />
+          </Sprite.Provider>
           <span class="rating" style={`--data-level: ${skill.level};`}></span>
         </li>)
       }

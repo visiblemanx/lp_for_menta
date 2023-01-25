@@ -11,9 +11,9 @@ const { icon, title, subTitle, body } = Astro.props;
 ---
 
 <li class="link-card fade-in">
-  <!-- <Sprite.Provider>
-    <Sprite name={icon} class="icon" />
-  </Sprite.Provider> -->
+  <Sprite.Provider>
+    <Sprite pack={icon.split(':')[0]} name={icon.split(':')[1]} class="icon" />
+  </Sprite.Provider>
   <h4>
     {title}
   </h4>
