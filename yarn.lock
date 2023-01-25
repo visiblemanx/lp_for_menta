@@ -679,7 +679,7 @@ __metadata:
     astro-icon: "npm:^0.8.0"
     firebase: "npm:^9.16.0"
     nanostores: "npm:^0.7.1"
-    svgo: "npm:^3.0.2"
+    svgo: "npm:3.0.2"
     tailwindcss: "npm:^3.2.4"
     vue: "npm:^3.2.45"
   languageName: unknown
@@ -6297,7 +6297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:3.0.2, svgo@npm:^3.0.2":
+"svgo@npm:3.0.2":
   version: 3.0.2
   resolution: "svgo@npm:3.0.2"
   dependencies:
