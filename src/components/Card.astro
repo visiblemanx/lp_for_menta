@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon'
+import { Sprite } from 'astro-icon'
 export interface Props {
   icon: string;
   title: string;
@@ -11,7 +11,9 @@ const { icon, title, subTitle, body } = Astro.props;
 ---
 
 <li class="link-card fade-in">
-  <Icon name={icon} class="icon" />
+  <Sprite.Provider>
+    <Sprite name={icon} class="icon" />
+  </Sprite.Provider>
   <h4>
     {title}
   </h4>
