@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import compress from "astro-compress";
 import vue from "@astrojs/vue";
 import tailwind from '@astrojs/tailwind';
 
@@ -9,5 +8,5 @@ export default defineConfig({
     port: 3201,
     host: true
   },
-  integrations: [compress(), vue(), tailwind()]
+  integrations: [vue(), tailwind()]
 });
